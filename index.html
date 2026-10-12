@@ -1,0 +1,1485 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Shahid Khan — Mobile &amp; Systems Engineer</title>
+<meta name="description" content="Shahid Khan, mobile and systems engineer in New Delhi: Flutter, React Native, Rust and on-device AI. Five apps live on the App Store and Google Play.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<style>
+:root{
+  --ground:#FAF7F2;
+  --panel:#FFFFFF;
+  --sunk:#F1EEE8;
+  --ink:#15130F;
+  --ink-2:#4E4941;
+  --ink-3:#6B6660;
+  --rule:#E9E5DE;
+  --rule-2:#D8D3C9;
+
+  --accent:#4A3D73;
+  --accent-soft:#EDE7F7;
+  --lilac:#B9A8DE;
+  --lilac-2:#CDBAF2;
+
+  --t-lilac:#E9E2F6;
+  --t-sage:#E3EAD8;
+  --t-peach:#F6E3D2;
+  --t-sand:#EFE8C6;
+  --t-blue:#DCE5F2;
+
+  --deep-1:#16131F;
+  --deep-2:#100D18;
+  --deep-3:#0C0A12;
+  --deep-ink:#F2EFF8;
+  --deep-ink-2:#B4ADC6;
+  --deep-rule:#2A2438;
+  --deep-accent:#CDBAF2;
+
+  --f-display:"Space Grotesk","Helvetica Neue",Arial,sans-serif;
+  --f-ui:"Plus Jakarta Sans","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
+
+  --measure:64ch;
+  --pad:clamp(18px,4.5vw,52px);
+  --r-lg:34px;
+  --r-md:26px;
+  --r-sm:16px;
+  --lift:0 2px 3px rgba(21,19,15,.03), 0 14px 34px -20px rgba(21,19,15,.18);
+  --lift-2:0 3px 6px rgba(21,19,15,.05), 0 26px 54px -26px rgba(21,19,15,.26);
+  --sheen:linear-gradient(150deg, rgba(255,255,255,.92), rgba(255,255,255,.06));
+  --edge-hover:#B9A8DE;
+  --shine:rgba(120,96,190,.95);
+  --fog:rgba(255,255,255,.045);
+  --glow:0 0 26px -8px rgba(120,96,190,.35);
+  --wash-1:rgba(185,168,222,.34);
+  --wash-2:rgba(227,234,216,.50);
+  --wash-3:rgba(246,227,210,.34);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#17131F;
+    --panel:#221D33;
+    --sunk:#1C182A;
+    --ink:#F2EFF8;
+    --ink-2:#BDB6CE;
+    --ink-3:#948CA8;
+    --rule:#332C4A;
+    --rule-2:#453D63;
+    --accent:#CDBAF2;
+    --accent-soft:#241C36;
+    --lilac:#B9A8DE;
+    --lilac-2:#CDBAF2;
+    --t-lilac:#372B52;
+    --t-sage:#2B3A26;
+    --t-peach:#432F22;
+    --t-sand:#3D3524;
+    --t-blue:#28344B;
+    --deep-1:#0F0C17;
+    --deep-2:#0B0913;
+    --deep-3:#08070E;
+    --lift:inset 0 1px 0 rgba(255,255,255,.05), 0 14px 34px -22px rgba(0,0,0,.8);
+    --lift-2:inset 0 1px 0 rgba(255,255,255,.10), 0 26px 54px -24px rgba(0,0,0,.85);
+    --sheen:linear-gradient(150deg, rgba(255,255,255,.06), rgba(255,255,255,.015));
+    --edge-hover:#CDBAF2;
+    --shine:rgba(226,214,255,1);
+    --fog:rgba(255,255,255,.075);
+    --glow:0 0 30px -6px rgba(185,168,222,.34);
+    --wash-1:rgba(126,102,196,.30);
+    --wash-2:rgba(70,96,80,.24);
+    --wash-3:rgba(150,104,60,.18);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#17131F;
+  --panel:#221D33;
+  --sunk:#1C182A;
+  --ink:#F2EFF8;
+  --ink-2:#BDB6CE;
+  --ink-3:#948CA8;
+  --rule:#332C4A;
+  --rule-2:#453D63;
+  --accent:#CDBAF2;
+  --accent-soft:#241C36;
+  --lilac:#B9A8DE;
+  --lilac-2:#CDBAF2;
+  --t-lilac:#372B52;
+  --t-sage:#2B3A26;
+  --t-peach:#432F22;
+  --t-sand:#3D3524;
+  --t-blue:#28344B;
+  --deep-1:#0F0C17;
+  --deep-2:#0B0913;
+  --deep-3:#08070E;
+  --lift:inset 0 1px 0 rgba(255,255,255,.05), 0 14px 34px -22px rgba(0,0,0,.8);
+  --lift-2:inset 0 1px 0 rgba(255,255,255,.10), 0 26px 54px -24px rgba(0,0,0,.85);
+  --sheen:linear-gradient(150deg, rgba(255,255,255,.06), rgba(255,255,255,.015));
+  --edge-hover:#CDBAF2;
+  --shine:rgba(226,214,255,1);
+  --fog:rgba(255,255,255,.075);
+  --glow:0 0 30px -6px rgba(185,168,222,.34);
+  --wash-1:rgba(126,102,196,.30);
+  --wash-2:rgba(70,96,80,.24);
+  --wash-3:rgba(150,104,60,.18);
+}
+
+*{box-sizing:border-box}
+body{
+  background-color:var(--ground);
+  background-image:
+    radial-gradient(1100px 520px at 88% -6%, var(--wash-1), transparent 60%),
+    radial-gradient(820px 420px at 6% 2%, var(--wash-2), transparent 58%),
+    radial-gradient(900px 700px at 50% 112%, var(--wash-3), transparent 62%);
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  color:var(--ink);
+  font-family:var(--f-ui);
+  font-size:16.5px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+h1,h2,h3,h4{margin:0}
+p{margin:0}
+.shell{max-width:1120px;margin:0 auto;padding:0 var(--pad)}
+
+/* ---------- masthead ---------- */
+.masthead{
+  position:relative;overflow:hidden;
+  background-image:
+    radial-gradient(760px 380px at 78% -18%, var(--wash-1), transparent 64%),
+    radial-gradient(520px 300px at 30% -22%, var(--wash-2), transparent 62%);
+  background-repeat:no-repeat;
+}
+.masthead::before,.masthead::after{
+  content:"";position:absolute;border-radius:50%;pointer-events:none;filter:blur(70px);z-index:0;
+}
+.masthead::before{
+  width:min(560px,80vw);height:min(560px,80vw);right:-8%;top:-34%;
+  background:radial-gradient(circle at 40% 40%, rgba(185,168,222,.42), transparent 68%);
+  animation:drift1 24s ease-in-out infinite alternate;
+}
+.masthead::after{
+  width:min(420px,64vw);height:min(420px,64vw);right:24%;top:-22%;
+  background:radial-gradient(circle at 55% 45%, rgba(227,234,216,.55), transparent 66%);
+  animation:drift2 29s ease-in-out infinite alternate;
+}
+:root[data-theme="dark"] .masthead::after,
+:root:not([data-theme="light"]) .masthead::after{background:radial-gradient(circle at 55% 45%, rgba(120,98,186,.62), transparent 66%)}
+@keyframes drift1{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(-54px,44px,0) scale(1.1)}}
+@keyframes drift2{from{transform:translate3d(0,0,0) scale(1.06)}to{transform:translate3d(48px,30px,0) scale(.93)}}
+.mast-inner{position:relative;z-index:1;padding-top:clamp(46px,7vw,88px);padding-bottom:clamp(34px,5vw,52px)}
+
+h1{
+  font-family:var(--f-display);
+  font-size:clamp(40px,6.6vw,78px);
+  font-weight:700;line-height:1.0;letter-spacing:-0.035em;margin-bottom:10px;
+}
+.grad{color:var(--ink)}
+.mast-role{
+  font-family:var(--f-display);
+  font-size:clamp(15px,1.75vw,19px);font-weight:500;color:var(--accent);
+  letter-spacing:-0.01em;margin-bottom:22px;
+}
+.mast-lead{
+  font-family:var(--f-display);max-width:24ch;
+  font-size:clamp(20px,2.4vw,27px);font-weight:500;line-height:1.28;
+  letter-spacing:-0.022em;color:var(--ink);margin-bottom:18px;
+}
+.mast-sum{max-width:62ch;font-size:clamp(16px,1.6vw,18px);color:var(--ink-2);line-height:1.62}
+.mast-meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:28px;font-size:13px}
+.mast-meta span{padding:8px 15px;border-radius:999px;background:var(--sunk);color:var(--ink-3)}
+.mast-meta a{
+  text-decoration:none;padding:8px 15px;border-radius:999px;
+  background:var(--panel);border:1px solid var(--rule);color:var(--ink-2);
+  transition:border-color .18s,color .18s,transform .18s;
+}
+.mast-meta a:hover{border-color:var(--lilac);color:var(--accent);transform:translateY(-1px)}
+
+/* ---------- progress + nav ---------- */
+.progress{
+  position:fixed;top:0;left:0;height:4px;width:100%;transform-origin:0 50%;transform:scaleX(0);
+  background:linear-gradient(90deg,#B9A8DE,#8FB8E8,#F0B48A,#B7D3A6);
+  z-index:40;will-change:transform;
+  transition:transform .08s linear;
+}
+.nav{position:sticky;top:0;z-index:20;background:var(--ground);border-bottom:1px solid var(--rule)}
+@supports (backdrop-filter:blur(1px)){
+  .nav{background:color-mix(in srgb, var(--ground) 86%, transparent);backdrop-filter:saturate(150%) blur(12px)}
+}
+.nav-inner{display:flex;align-items:center;gap:2px;overflow-x:auto;padding:9px var(--pad);max-width:1120px;margin:0 auto}
+.nav a{
+  flex:none;text-decoration:none;color:var(--ink-3);font-size:13px;font-weight:500;
+  padding:8px 14px;border-radius:999px;white-space:nowrap;transition:color .18s,background .18s;
+}
+.nav a:hover{color:var(--ink);background:var(--sunk)}
+.nav a.on{color:var(--accent);background:var(--accent-soft)}
+.nav .spacer{flex:1}
+.themebtn{
+  position:fixed;top:calc((var(--navh,56px) - var(--btn,40px)) / 2);right:16px;z-index:60;
+  width:var(--btn,40px);height:var(--btn,40px);display:grid;place-items:center;
+  background:var(--panel);border:1px solid var(--rule-2);border-radius:999px;
+  color:var(--ink-2);cursor:pointer;padding:0;line-height:0;box-shadow:var(--lift);
+  transition:border-color .2s,color .2s,transform .2s,box-shadow .2s;
+}
+.themebtn:hover{border-color:var(--lilac);color:var(--accent);box-shadow:var(--lift-2)}
+.themebtn:active{transform:scale(.92)}
+.themebtn .ico{display:block;width:19px;height:19px;grid-area:1/1;place-self:center;transition:opacity .25s ease,transform .35s cubic-bezier(.16,.84,.44,1)}
+/* light theme: offer the moon. dark theme: offer the sun. */
+.ico-sun{opacity:0;transform:rotate(-70deg) scale(.6)}
+.ico-moon{opacity:1;transform:none}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .ico-sun{opacity:1;transform:none}
+  :root:not([data-theme="light"]) .ico-moon{opacity:0;transform:rotate(70deg) scale(.6)}
+}
+:root[data-theme="dark"] .ico-sun{opacity:1;transform:none}
+:root[data-theme="dark"] .ico-moon{opacity:0;transform:rotate(70deg) scale(.6)}
+:root[data-theme="light"] .ico-sun{opacity:0;transform:rotate(-70deg) scale(.6)}
+:root[data-theme="light"] .ico-moon{opacity:1;transform:none}
+@media (max-width:560px){:root{--btn:36px}.themebtn{right:10px}.themebtn .ico{width:17px;height:17px}}
+/* keep the nav clear of the button so links never slide underneath it */
+.nav-inner{padding-right:calc(var(--pad) + 52px)}
+.themebtn:hover{border-color:var(--lilac);color:var(--accent)}
+
+/* ---------- reveal ---------- */
+.rv{opacity:1;transform:none}
+@media (prefers-reduced-motion:no-preference){
+  .js .rv{
+    opacity:0;transform:translateY(26px) scale(.985);
+    transition:opacity .7s cubic-bezier(.16,.84,.44,1), transform .7s cubic-bezier(.16,.84,.44,1);
+  }
+  .js .rv.in{opacity:1;transform:none}
+  /* stagger the reveal only - never delay a response to the pointer */
+  .js .grid .rv:nth-child(2):not(:hover),.js .svc .rv:nth-child(2):not(:hover),.js .stats .rv:nth-child(2):not(:hover){transition-delay:.07s}
+  .js .grid .rv:nth-child(3):not(:hover),.js .svc .rv:nth-child(3):not(:hover),.js .stats .rv:nth-child(3):not(:hover){transition-delay:.14s}
+  .js .grid .rv:nth-child(4):not(:hover),.js .svc .rv:nth-child(4):not(:hover),.js .stats .rv:nth-child(4):not(:hover){transition-delay:.21s}
+  .js .grid .rv:nth-child(5):not(:hover),.js .svc .rv:nth-child(5):not(:hover),.js .stats .rv:nth-child(5):not(:hover){transition-delay:.28s}
+  .js .svc .rv:nth-child(6):not(:hover){transition-delay:.35s}
+}
+
+/* ---------- sections ---------- */
+section{padding:clamp(50px,6.5vw,84px) 0;scroll-margin-top:60px}
+.kicker{
+  font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:16px;display:inline-flex;align-items:center;gap:9px;
+  background:var(--accent-soft);padding:6px 14px;border-radius:999px;
+}
+h2{
+  font-family:var(--f-display);font-weight:700;
+  font-size:clamp(27px,3.6vw,44px);line-height:1.08;letter-spacing:-0.032em;
+  margin-bottom:14px;max-width:20ch;
+}
+.sec-intro{max-width:var(--measure);color:var(--ink-2);font-size:17px;margin-bottom:32px}
+h3{font-family:var(--f-display);font-size:20px;font-weight:600;letter-spacing:-0.02em;line-height:1.25}
+h4{font-family:var(--f-mono);font-size:11px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+.small{font-size:14.5px;color:var(--ink-2)}
+strong{font-weight:600;color:var(--ink)}
+code{font-family:var(--f-mono);font-size:.86em;background:var(--sunk);padding:2px 6px;border-radius:6px;color:var(--ink-2)}
+
+/* ---------- stats ---------- */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.stat{
+  background:var(--panel);border:1px solid var(--rule);border-radius:var(--r-md);padding:22px;
+  background-image:var(--sheen);
+}
+.stat b{display:block;font-family:var(--f-display);font-size:clamp(26px,3.2vw,36px);font-weight:700;letter-spacing:-0.04em;font-variant-numeric:tabular-nums;line-height:1.05;color:var(--ink)}
+.stat span{display:block;font-size:12.5px;line-height:1.45;color:var(--ink-3);margin-top:8px}
+
+/* ---------- cards ---------- */
+.grid{perspective:1100px;display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:16px}
+.card{
+  position:relative;border:1px solid var(--rule);border-radius:var(--r-lg);
+  padding:26px;display:flex;flex-direction:column;gap:11px;box-shadow:var(--lift);
+  background-color:var(--panel);background-image:var(--sheen);
+  transition:transform .26s cubic-bezier(.16,.84,.44,1), box-shadow .26s ease, border-color .26s ease;
+}
+.card,.svc-item,.contact,.stat,.skill{--mx:50%;--my:50%;--tx:0deg;--ty:0deg;--px:0px;--py:0px;transform-style:preserve-3d;position:relative}
+.card::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;
+  background:radial-gradient(240px circle at var(--mx) var(--my),
+    var(--shine) 0%, rgba(185,168,222,.28) 32%, rgba(185,168,222,0) 62%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  opacity:0;transition:opacity .3s ease;pointer-events:none;z-index:2;
+}
+.card:hover,.svc-item:hover,.contact:hover{
+  transform:translate3d(var(--px),calc(var(--py) - 8px),0) rotateX(var(--ty)) rotateY(var(--tx));
+  box-shadow:var(--lift-2),var(--glow);
+}
+.js .card:hover,.js .svc-item:hover,.js .contact:hover{
+  transform:translate3d(var(--px),calc(var(--py) - 8px),0) rotateX(var(--ty)) rotateY(var(--tx));
+}
+/* the reveal stagger sets transition-delay on the element, which would otherwise
+   make every card after the first respond late to the pointer. Clear it on hover. */
+.card:hover,.svc-item:hover,.contact:hover,.stat:hover,.skill:hover,
+.js .card:hover,.js .svc-item:hover,.js .contact:hover,.js .stat:hover,.js .skill:hover{
+  transition-delay:0s;
+}
+/* smaller tiles: a gentler version of the same idea */
+.stat,.skill{transition:transform .26s cubic-bezier(.16,.84,.44,1),box-shadow .26s ease}
+.stat:hover,.skill:hover{transform:translate3d(var(--px),calc(var(--py) - 4px),0);box-shadow:var(--lift)}
+.js .stat:hover,.js .skill:hover{transform:translate3d(var(--px),calc(var(--py) - 4px),0)}
+.stat::after,.skill::after,.contact::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;
+  background:radial-gradient(220px circle at var(--mx) var(--my),
+    var(--shine) 0%, rgba(185,168,222,.24) 34%, rgba(185,168,222,0) 64%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  opacity:0;transition:opacity .3s ease;pointer-events:none;
+}
+.stat:hover::after,.skill:hover::after,.contact:hover::after{opacity:1}
+.contact{transition:transform .26s cubic-bezier(.16,.84,.44,1),box-shadow .26s ease}
+.contact > *,.stat > *,.skill > *{position:relative;z-index:2}
+.card:hover::after{opacity:1}
+.card > *{position:relative;z-index:3}
+.card:nth-child(6n+1){background-color:var(--t-lilac)}
+.card:nth-child(6n+2){background-color:var(--t-sage)}
+.card:nth-child(6n+3){background-color:var(--t-peach)}
+.card:nth-child(6n+4){background-color:var(--t-blue)}
+.card:nth-child(6n+5){background-color:var(--t-sand)}
+.card:nth-child(6n+6){background-color:var(--t-lilac)}
+.badge{
+  display:inline-flex;align-items:center;gap:7px;align-self:flex-start;
+  font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink);background:rgba(255,255,255,.6);border-radius:999px;padding:5px 12px;
+}
+:root[data-theme="dark"] .badge,:root:not([data-theme="light"]) .badge{background:rgba(255,255,255,.09);color:var(--ink)}
+.badge i{width:6px;height:6px;border-radius:50%;background:#3F7F63}
+.card p{font-size:14.5px;color:var(--ink-2);line-height:1.55;flex:1}
+.storelinks{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}
+.storelinks a{
+  font-size:12px;font-weight:500;text-decoration:none;padding:7px 13px;border-radius:999px;
+  background:var(--ink);color:var(--ground);transition:opacity .18s,transform .18s;
+}
+.storelinks a:hover{opacity:.82;transform:translateY(-1px)}
+
+/* ---------- case studies ---------- */
+.case{
+  display:grid;grid-template-columns:250px minmax(0,1fr);gap:clamp(20px,3vw,40px);
+  background:var(--panel);border:1px solid var(--rule);border-radius:var(--r-lg);
+  padding:clamp(24px,3vw,38px);margin-top:18px;box-shadow:var(--lift);
+}
+.case-side h3{margin-bottom:4px}
+.case-kind{font-size:14px;color:var(--ink-3);margin-bottom:18px}
+.case-side .facts{display:flex;flex-direction:column;gap:10px;margin:0 0 18px}
+.case-side .facts > div{display:flex;flex-direction:column;gap:1px}
+.case-side dt{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.case-side dd{margin:0;font-size:14px;color:var(--ink-2);line-height:1.4}
+.case-side .stack{margin-top:0;margin-bottom:14px}
+.case-side .storelinks{margin-top:0}
+.seg{padding-top:20px;margin-top:20px;border-top:1px solid var(--rule)}
+.seg:first-of-type{padding-top:0;margin-top:18px;border-top:0}
+.seg h4{margin-bottom:11px}
+@media (max-width:820px){
+  .case{grid-template-columns:minmax(0,1fr);gap:22px}
+  .case-side{padding-bottom:20px;border-bottom:1px solid var(--rule)}
+}
+.case-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 14px;margin-bottom:6px}
+.case-meta{font-family:var(--f-mono);font-size:12px;color:var(--ink-3);margin-bottom:14px}
+.outcome{
+  font-size:17px;line-height:1.5;color:var(--ink);font-weight:600;
+  padding:14px 18px;border-radius:var(--r-sm);background:var(--accent-soft);
+  margin-bottom:6px;max-width:var(--measure);
+}
+.tag{
+  font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  padding:4px 11px;border-radius:999px;white-space:nowrap;background:var(--accent-soft);color:var(--accent);
+}
+.tag.work{background:var(--sunk);color:var(--ink-3)}
+.blocks{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(252px,1fr));margin-top:18px}
+.block h4{margin-bottom:10px}
+ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px}
+li{position:relative;padding-left:18px;font-size:15px;color:var(--ink-2);line-height:1.55}
+li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--lilac)}
+li strong{color:var(--ink)}
+.stack{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+.chip{font-family:var(--f-mono);font-size:11px;padding:5px 12px;border-radius:999px;color:var(--ink-3);background:var(--sunk)}
+
+/* ---------- architecture figure ---------- */
+.arch{margin:22px 0 4px;border:1px solid var(--rule);border-radius:var(--r-md);overflow:hidden;background:var(--panel)}
+.arch-head{
+  padding:12px 18px;border-bottom:1px solid var(--rule);background:var(--sunk);
+  font-family:var(--f-mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.04em;
+}
+.lvl{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:14px;align-items:center;
+     padding:14px 18px;border-bottom:1px solid var(--rule)}
+.lvl:last-child{border-bottom:0}
+.lvl-n{font-family:var(--f-mono);font-size:11px;color:var(--ink-3);letter-spacing:.06em}
+.lvl-b{font-size:14.5px;line-height:1.45;color:var(--ink-2)}
+.lvl-b strong{display:block;font-family:var(--f-display);font-size:15.5px;color:var(--ink);margin-bottom:2px}
+.lvl-tag{
+  font-family:var(--f-mono);font-size:10.5px;letter-spacing:.05em;white-space:nowrap;
+  padding:4px 10px;border-radius:999px;background:var(--sunk);color:var(--ink-3);
+}
+.lvl.base{background:var(--t-sage)}
+.lvl.base .lvl-tag{background:rgba(255,255,255,.55);color:var(--ink)}
+:root[data-theme="dark"] .lvl.base .lvl-tag,
+:root:not([data-theme="light"]) .lvl.base .lvl-tag{background:rgba(255,255,255,.10);color:var(--ink)}
+.arch-note{padding:13px 18px;border-top:1px solid var(--rule);font-size:14px;color:var(--ink-2);background:var(--sunk)}
+@media (max-width:560px){
+  .lvl{grid-template-columns:minmax(0,1fr);gap:6px}
+  .lvl-tag{justify-self:start}
+}
+
+/* ---------- code structure ---------- */
+.tree{
+  border:1px solid var(--rule);border-radius:var(--r-md);overflow:hidden;
+  background:var(--panel);margin-top:14px;
+}
+.tree-head{
+  padding:11px 16px;border-bottom:1px solid var(--rule);background:var(--sunk);
+  font-family:var(--f-mono);font-size:11.5px;color:var(--ink-3);
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+.tree-row{
+  display:grid;grid-template-columns:minmax(140px,190px) minmax(0,1fr) auto;
+  gap:14px;align-items:baseline;padding:11px 16px;border-bottom:1px solid var(--rule);
+}
+.tree-row:last-child{border-bottom:0}
+.tree-row code{background:none;padding:0;font-size:12.5px;color:var(--ink);font-weight:500}
+.tree-row p{font-size:13.5px;line-height:1.45;color:var(--ink-2)}
+.tree-row b{
+  font-family:var(--f-mono);font-size:11px;color:var(--ink-3);
+  white-space:nowrap;font-weight:400;font-variant-numeric:tabular-nums;
+}
+@media (max-width:620px){
+  .tree-row{grid-template-columns:minmax(0,1fr);gap:3px}
+  .tree-row b{order:-1}
+}
+
+/* ---------- flow diagram ---------- */
+.flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:4px}
+.node{
+  border:1px solid var(--rule);border-radius:var(--r-md);padding:16px;
+  background-color:var(--panel);background-image:var(--sheen);
+}
+.node.mid{background-color:var(--t-lilac);border-style:dashed}
+.node h5{margin:0 0 6px;font-family:var(--f-display);font-size:14.5px;font-weight:600;color:var(--ink)}
+.node p{font-size:13.5px;line-height:1.5;color:var(--ink-2)}
+.node-tag{
+  display:inline-block;font-family:var(--f-mono);font-size:10px;letter-spacing:.05em;
+  padding:3px 8px;border-radius:999px;background:var(--sunk);color:var(--ink-3);margin-bottom:8px;
+}
+.node.mid .node-tag{background:rgba(255,255,255,.55);color:var(--ink)}
+:root[data-theme="dark"] .node.mid .node-tag,
+:root:not([data-theme="light"]) .node.mid .node-tag{background:rgba(255,255,255,.10);color:var(--ink)}
+.flow-note{
+  margin-top:10px;padding:12px 16px;border-radius:var(--r-sm);
+  background:var(--sunk);font-size:14px;color:var(--ink-2);
+}
+.wire{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.wire span{font-family:var(--f-mono);font-size:11px;padding:4px 9px;border-radius:6px;background:var(--sunk);color:var(--ink-2)}
+@media (max-width:640px){.flow{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- progressive disclosure ---------- */
+details.more{margin-top:14px;border-top:1px solid var(--rule);padding-top:12px}
+details.more > summary{
+  cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--f-display);font-size:13.5px;font-weight:600;color:var(--accent);
+  padding:7px 14px;border:1px solid var(--rule-2);border-radius:999px;
+  transition:border-color .18s,background .18s;
+}
+details.more > summary::-webkit-details-marker{display:none}
+details.more > summary::after{content:"+";font-family:var(--f-mono);font-size:14px;line-height:1}
+details.more[open] > summary::after{content:"\2212"}
+details.more > summary:hover{border-color:var(--accent);background:var(--accent-soft)}
+details.more[open] > summary{margin-bottom:6px}
+/* author styles beat the UA rule, so hide collapsed content explicitly */
+details.more:not([open]) > *:not(summary){display:none!important}
+
+/* ---------- deep panel (was full-bleed band) ---------- */
+.band{padding:clamp(50px,6.5vw,84px) 0}
+.band .shell > *{position:relative;z-index:1}
+.deep{
+  border-radius:var(--r-lg);
+  padding:clamp(26px,4vw,48px);
+  background:linear-gradient(180deg,var(--deep-1) 0%,var(--deep-2) 58%,var(--deep-3) 100%);
+  color:var(--deep-ink);box-shadow:var(--lift-2);border:1px solid var(--rule);
+}
+.deep .kicker{color:var(--deep-accent);background:rgba(205,186,242,.12)}
+.deep h2{color:var(--deep-ink)}
+.deep .sec-intro,.deep li,.deep p{color:var(--deep-ink-2)}
+.deep li strong,.deep strong{color:var(--deep-ink)}
+.deep li::before{background:var(--deep-accent)}
+.deep h4{color:var(--deep-ink-2)}
+.deep code{background:rgba(255,255,255,.08);color:var(--deep-ink-2)}
+.manifest{border:1px solid var(--deep-rule);border-radius:var(--r-md);overflow:hidden;margin-top:26px;background:rgba(255,255,255,.02)}
+.mhead{
+  padding:13px 20px;border-bottom:1px solid var(--deep-rule);
+  font-family:var(--f-mono);font-size:11.5px;color:var(--deep-ink-2);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+}
+.mhead b{color:var(--deep-accent);font-weight:500}
+.mrow{display:grid;grid-template-columns:16px 1fr;gap:12px;padding:13px 20px;border-bottom:1px solid var(--deep-rule)}
+.mrow:last-child{border-bottom:0}
+.mrow .tick{color:var(--deep-accent);font-family:var(--f-mono);font-size:12px;line-height:1.5}
+.mrow q{quotes:none;display:block;font-size:14px;color:var(--deep-ink);line-height:1.5}
+.mrow cite{display:block;font-style:normal;font-family:var(--f-mono);font-size:11px;color:var(--deep-ink-2);margin-top:5px;opacity:.8}
+
+/* ---------- services ---------- */
+.svc{perspective:1100px;display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:14px}
+.svc-item{
+  border:1px solid var(--rule);border-radius:var(--r-lg);padding:26px;
+  background-color:var(--panel);background-image:var(--sheen);box-shadow:var(--lift);
+  transition:transform .26s cubic-bezier(.16,.84,.44,1),box-shadow .26s ease,border-color .26s ease;
+}
+.svc-item{position:relative}
+.svc-item::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;
+  background:radial-gradient(240px circle at var(--mx) var(--my),
+    var(--shine) 0%, rgba(185,168,222,.28) 32%, rgba(185,168,222,0) 62%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  opacity:0;transition:opacity .3s ease;pointer-events:none;
+}
+
+.svc-item:hover::after{opacity:1}
+.svc-item > *{position:relative;z-index:2}
+.svc-item:nth-child(1){background-color:var(--t-sage)}
+.svc-item:nth-child(2){background-color:var(--t-peach)}
+.svc-item:nth-child(3){background-color:var(--t-lilac)}
+.svc-item:nth-child(4){background-color:var(--t-blue)}
+.svc-item:nth-child(5){background-color:var(--t-sand)}
+.svc-item:nth-child(6){background-color:var(--t-sage)}
+.svc-item h3{font-size:18px;margin-bottom:9px}
+.svc-item p{font-size:14.5px;color:var(--ink-2);line-height:1.55}
+.svc-num{
+  font-family:var(--f-mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-3);display:inline-block;margin-bottom:12px;
+  padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.55);
+}
+:root[data-theme="dark"] .svc-num,:root:not([data-theme="light"]) .svc-num{background:rgba(255,255,255,.09)}
+
+/* ---------- skills ---------- */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:12px}
+.skill{background:var(--panel);border:1px solid var(--rule);border-radius:var(--r-md);padding:22px;background-image:var(--sheen)}
+.skill h4{margin-bottom:10px;color:var(--accent)}
+.skill p{font-size:14.5px;color:var(--ink-2);line-height:1.55}
+
+/* ---------- quote ---------- */
+.quote{
+  border-radius:var(--r-lg);padding:clamp(24px,3vw,34px);
+  background:var(--t-lilac);max-width:var(--measure);margin:28px 0;
+}
+.quote p{font-family:var(--f-display);font-size:20px;line-height:1.4;letter-spacing:-0.02em;color:var(--ink)}
+.quote cite{display:block;font-style:normal;font-family:var(--f-mono);font-size:11.5px;color:var(--ink-3);margin-top:13px}
+
+/* ---------- contact ---------- */
+#contact .shell{perspective:1200px}
+.stats,.skills{perspective:1000px}
+.contact{
+  border:1px solid var(--rule);border-radius:var(--r-lg);
+  padding:clamp(28px,4vw,48px);background-color:var(--t-sage);background-image:var(--sheen);box-shadow:var(--lift-2);
+}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.cta a{
+  text-decoration:none;font-size:14.5px;font-weight:600;padding:13px 22px;border-radius:999px;
+  border:1px solid var(--rule-2);color:var(--ink);background:var(--panel);
+  transition:transform .18s,border-color .18s,color .18s;
+}
+.cta a.primary{background:var(--ink);border-color:var(--ink);color:var(--ground)}
+.cta a:hover{transform:translateY(-2px);border-color:var(--lilac);color:var(--accent)}
+.cta a.primary:hover{color:var(--ground);border-color:var(--ink)}
+
+footer, footer.shell{
+  margin-top:clamp(56px,7vw,92px);padding:28px 0 8px;
+  border-top:1px solid var(--rule);
+  font-family:var(--f-mono);font-size:11.5px;color:var(--ink-3);
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+}
+
+@media (max-width:640px){
+  .blocks{grid-template-columns:1fr}
+  li{font-size:14.5px}
+  :root{--r-lg:26px;--r-md:20px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+html{scroll-behavior:smooth}
+</style>
+</head>
+<body>
+
+
+<div class="progress" id="prog"></div>
+<button class="themebtn" id="theme" type="button" aria-label="Switch to dark theme" title="Switch theme">
+  <svg class="ico ico-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1Z"
+          fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+  </svg>
+  <svg class="ico ico-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.7"/>
+    <g stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+      <path d="M12 2.6v2.2M12 19.2v2.2M4.2 12H2M22 12h-2.2M6.3 6.3 4.8 4.8M19.2 19.2l-1.5-1.5M17.7 6.3l1.5-1.5M4.8 19.2l1.5-1.5"/>
+    </g>
+  </svg>
+</button>
+
+<header class="masthead">
+  <div class="shell mast-inner">
+    <h1><span class="grad">Shahid Khan</span></h1>
+    <div class="mast-role">Mobile &amp; Systems Engineer &mdash; Flutter, React Native, Rust, AI Integration</div>
+    <p class="mast-lead">I build mobile applications end to end, and go below the framework when the problem needs it.</p>
+    <p class="mast-sum">Four-plus years shipping production software. <strong>Five client applications are live on the App Store and Google Play</strong>, across healthcare, hospitality, retail and professional services. Flutter, React Native and native iOS and Android, with a Rust engine shared across platforms. I integrate AI where it earns its place &mdash; sized to the device, optional by design, never something the product depends on. I specify the architecture, design system and safety model, not only the implementation.</p>
+    <div class="mast-meta">
+      <span>New Delhi, India</span>
+      <a href="mailto:shahidkhan9382@gmail.com">shahidkhan9382@gmail.com</a>
+      <a href="https://linkedin.com/in/shahid-khan61" target="_blank" rel="noopener">linkedin.com/in/shahid-khan61</a>
+      <a href="https://github.com/Shahid6161" target="_blank" rel="noopener">github.com/Shahid6161</a>
+    </div>
+  </div>
+</header>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#products">Work</a>
+    <a href="#independent">My projects</a>
+    <a href="#work">Experience</a>
+    <a href="#design">Design</a>
+    <a href="#practice">Practice</a>
+    <a href="#skills">Skills</a>
+    <a href="#strengths">Strengths</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ================= LIVE PRODUCTS ================= -->
+<section id="products">
+  <div class="shell">
+    <div class="kicker rv">Selected work</div>
+    <h2>Five applications in public release</h2>
+    <p class="sec-intro">Apps I have built at Appinventiv, where I have been a mobile engineer since 2021. Five are in public release &mdash; open any of them.</p>
+
+    <div class="grid">
+      <div class="card rv">
+        <span class="badge"><i></i>Live</span>
+        <h3>Global Neuro &amp; Spine Care</h3>
+        <p>Neurosurgical and neurological consultation platform. Patients book video or in-clinic appointments, manage dependants and access medical records. I built the scheduling and messaging modules and the application shell.</p>
+        <div class="storelinks">
+          <a href="https://play.google.com/store/apps/details?id=com.globalneuro.care" target="_blank" rel="noopener">Google Play</a>
+          <a href="https://apps.apple.com/in/app/global-neuro-and-spine-care/id6737462963" target="_blank" rel="noopener">App Store</a>
+        </div>
+      </div>
+      <div class="card rv">
+        <span class="badge"><i></i>Live</span>
+        <h3>ATICO Fakhreldin Group</h3>
+        <p>Loyalty and ordering application for a Jordanian hospitality group. I resolved the memory pressure that was causing the application to terminate, and rebuilt menu search, scrolling and filtering.</p>
+        <div class="storelinks">
+          <a href="https://play.google.com/store/apps/details?id=com.jo.atico" target="_blank" rel="noopener">Google Play</a>
+          <a href="https://apps.apple.com/jo/app/atico-fakhreldin-group/id1502888604" target="_blank" rel="noopener">App Store</a>
+        </div>
+      </div>
+      <div class="card rv">
+        <span class="badge"><i></i>Live</span>
+        <h3>InfoProfile</h3>
+        <p>Digital business card and contact-exchange platform. My largest single contribution to a client codebase, spanning the mobile application and the Flutter Web product, including the Stripe subscription tier.</p>
+        <div class="storelinks">
+          <a href="https://play.google.com/store/apps/details?id=com.infoProfile.infoProfile" target="_blank" rel="noopener">Google Play</a>
+          <a href="https://apps.apple.com/in/app/infoprofile-digital-card/id6448977711" target="_blank" rel="noopener">App Store</a>
+          <a href="https://infoprofile.com/" target="_blank" rel="noopener">Website</a>
+        </div>
+      </div>
+      <div class="card rv">
+        <span class="badge"><i></i>Live</span>
+        <h3>Shoona</h3>
+        <p>Wellness and practitioner platform. I established the interface foundation and the automated slot-booking system, and optimised Agora calling over persistent sockets to reduce call setup time.</p>
+        <div class="storelinks">
+          <a href="https://play.google.com/store/apps/details?id=com.shoona.shoona" target="_blank" rel="noopener">Google Play</a>
+        </div>
+      </div>
+      <div class="card rv">
+        <span class="badge"><i></i>Live</span>
+        <h3>Boudl Hotels &amp; Resorts</h3>
+        <p>Reservation platform covering more than 60 properties across four Saudi hotel brands. I integrated the group's legacy Oracle SOAP services into a Flutter client without server-side modification.</p>
+        <div class="storelinks">
+          <a href="https://play.google.com/store/apps/details?id=com.boudlhotelsandresorts" target="_blank" rel="noopener">Google Play</a>
+          <a href="https://boudl.com/en/" target="_blank" rel="noopener">Website</a>
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="stats rv" style="margin-top:34px">
+      <div class="stat"><b>4+</b><span>Years in production mobile development</span></div>
+      <div class="stat"><b>5</b><span>Client applications in public release</span></div>
+      <div class="stat"><b>509</b><span>Of 677 source files authored on GBSC</span></div>
+      <div class="stat"><b>60+</b><span>Hotel properties served, Boudl</span></div>
+      <div class="stat"><b>6</b><span>Languages shipped in production: Dart, Kotlin, Swift, Rust, TypeScript, JavaScript</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INDEPENDENT ================= -->
+<section id="independent">
+  <div class="shell">
+    <div class="kicker rv">Projects</div>
+    <h2>Work I own end to end</h2>
+    <p class="sec-intro">Products I build on my own, where I make every decision &mdash; the architecture, the safety model, the design and the code. Two are in progress; the third was the first thing I ever shipped.</p>
+
+    <!-- Anchor -->
+    <article class="case rv">
+      <aside class="case-side">
+        <h3>Anchor</h3>
+        <p class="case-kind">Offline-first mental health application</p>
+        <dl class="facts">
+          <div><dt>When</dt><dd>2026 &ndash; present</dd></div>
+          <div><dt>Role</dt><dd>Sole engineer and designer</dd></div>
+          <div><dt>Platforms</dt><dd>Android, iOS, macOS, web</dd></div>
+          <div><dt>Status</dt><dd>Releasing soon</dd></div>
+        </dl>
+        <div class="stack">
+          <span class="chip">Flutter</span><span class="chip">Dart FFI</span><span class="chip">llama.cpp</span><span class="chip">GBNF</span><span class="chip">ONNX Runtime</span><span class="chip">Qwen2.5-0.5B</span>
+        </div>
+      </aside>
+      <div class="case-body">
+        <p class="outcome">A mental health app that works completely offline with no AI involved. Where a phone can run one, a small model improves the wording &mdash; it is never required.</p>
+
+        <div class="seg">
+          <h4>The rule everything follows from</h4>
+          <ul>
+            <li>AI may make a response fit better. It may never be needed for one, and it may never come between someone and a crisis helpline.</li>
+          </ul>
+        </div>
+
+        <div class="seg">
+          <h4>How it is built</h4>
+          <p style="margin-bottom:4px">Four layers. The bottom one is the product; everything above it is a bonus that can fail silently.</p>
+          <div class="arch">
+            <div class="arch-head">answering a check-in &mdash; each layer used only if the one below allows it</div>
+            <div class="lvl">
+              <span class="lvl-n">Level 3</span>
+              <span class="lvl-b"><strong>Cloud</strong>Optional, off by default, never for anything sensitive.</span>
+              <span class="lvl-tag">opt-in</span>
+            </div>
+            <div class="lvl">
+              <span class="lvl-n">Level 2</span>
+              <span class="lvl-b"><strong>Language model, on the phone</strong>Rewrites approved wording to fit the moment. It cannot invent its own.</span>
+              <span class="lvl-tag">if device allows</span>
+            </div>
+            <div class="lvl">
+              <span class="lvl-n">Level 1</span>
+              <span class="lvl-b"><strong>Understanding, on the phone</strong>Reads tone and picks which prepared response fits best.</span>
+              <span class="lvl-tag">if device allows</span>
+            </div>
+            <div class="lvl base">
+              <span class="lvl-n">Level 0</span>
+              <span class="lvl-b"><strong>Human-written answers</strong>A curated bank of responses, chosen by fixed rules. No AI whatsoever.</span>
+              <span class="lvl-tag">always runs</span>
+            </div>
+            <div class="arch-note"><strong>Safety sits beside all four, not inside them.</strong> Crisis wording is fixed, human-written and never touched by a model &mdash; whichever layers happen to be running.</div>
+          </div>
+
+          <details class="more">
+            <summary>Show the architecture</summary>
+            <p class="small" style="margin-top:14px">Every check-in follows the same path. The safety check runs first and cannot be skipped, and both routes end in one shared response format &mdash; so the screens never need to know which route was taken.</p>
+            <div class="tree">
+              <div class="tree-head"><span>one check-in, start to finish</span><span>risk check is not optional</span></div>
+              <div class="tree-row"><code>1 &middot; Risk check</code><p>Runs on every check-in, before anything else. Fixed word lists, no model, no way around it.</p><b>always</b></div>
+              <div class="tree-row"><code>2a &middot; Crisis route</code><p>If risk is found: fixed, human-written wording and the helpline. Nothing is generated, reworded or re-ranked.</p><b>no AI</b></div>
+              <div class="tree-row"><code>2b &middot; Normal route</code><p>Otherwise: rules pick a response from the curated bank. This alone is a complete answer.</p><b>no AI</b></div>
+              <div class="tree-row"><code>3 &middot; Enhancement</code><p>The on-device model may improve the wording. Its output is checked against the schema and <strong>accepted whole or thrown away whole</strong> &mdash; never patched.</p><b>optional</b></div>
+              <div class="tree-row"><code>4 &middot; One response</code><p>Both routes produce the same shape, so the interface renders one thing and cannot leak which path ran.</p><b>always</b></div>
+              <div class="arch-note"><strong>Consent sits between the phone and the network.</strong> Everything up to the on-device model runs with no network and no permission needed. Nothing crosses to a server without explicit, separate consent.</div>
+            </div>
+            <p class="small" style="margin-top:14px">The rules that keep this true are held by <a href="#practice">CLEAR</a>, the five-layer system I designed on this project.</p>
+          </details>
+
+
+          <details class="more">
+            <summary>Behind the scenes</summary>
+            <ul style="margin-top:14px">
+              <li><strong>The model never writes.</strong> It is handed a set of approved sentences and may only choose and join them. A guard between the model and the screen rejects anything not on that list &mdash; so &ldquo;the AI said something wrong&rdquo; is not a failure this app can have.</li>
+              <li><strong>What it remembers are categories, not words.</strong> It records that someone tends to prefer short, low-effort suggestions at night &mdash; never the sentence they typed. That memory fades, so a bad week cannot define someone permanently.</li>
+              <li><strong>The classifier may say &ldquo;I don&rsquo;t know&rdquo;.</strong> Reading emotion from text is unreliable, so it declines rather than guesses and the app asks instead. Accuracy comes from knowing when to abstain.</li>
+              <li><strong>Everything in the app varies to avoid repeating itself &mdash; except the crisis wording.</strong> That stays a fixed set of five human-written responses. Adding variety there would mean showing someone words nobody had reviewed, at the worst possible moment.</li>
+              <li><strong>Most mental-health apps break when the network does.</strong> Anchor answers fully at the base level, so a weak signal, an old phone or a failed model changes nothing the user can see.</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </article>
+
+    <!-- Tether -->
+    <article class="case rv">
+      <aside class="case-side">
+        <h3>Tether</h3>
+        <p class="case-kind">Remote control plane for coding agents</p>
+        <dl class="facts">
+          <div><dt>When</dt><dd>2026 &ndash; present</dd></div>
+          <div><dt>Role</dt><dd>Sole engineer</dd></div>
+          <div><dt>Shape</dt><dd>Rust core, Compose surface, UniFFI bridge</dd></div>
+        </dl>
+        <div class="stack">
+          <span class="chip">Rust</span><span class="chip">UniFFI</span><span class="chip">Kotlin</span><span class="chip">Jetpack Compose</span><span class="chip">cargo-mutants</span>
+        </div>
+      </aside>
+      <div class="case-body">
+        <p class="outcome">Run, watch and answer coding agents on your own computer, from your phone.</p>
+
+        <div class="seg">
+          <h4>How it is built</h4>
+          <p style="margin-bottom:4px">Your machine does the work. The phone is a window onto it, and the relay in the middle is deliberately kept ignorant.</p>
+          <div class="flow">
+            <div class="node">
+              <span class="node-tag">what you hold</span>
+              <h5>Phone</h5>
+              <p>Watch what each agent is doing and answer the ones that are blocked. Holds no logic of its own &mdash; it only draws what the engine gives it.</p>
+            </div>
+            <div class="node mid">
+              <span class="node-tag">what carries it</span>
+              <h5>Relay</h5>
+              <p>Passes messages between the two. Everything through it is sealed, so it can deliver your work without being able to read it.</p>
+            </div>
+            <div class="node">
+              <span class="node-tag">what does the work</span>
+              <h5>Your computer</h5>
+              <p>Runs the coding agents, using the tools and subscriptions you already pay for. Nothing moves to someone else&rsquo;s cloud.</p>
+            </div>
+          </div>
+          <div class="flow-note"><strong>The engine is written once, in Rust,</strong> and shared with the phone app &mdash; so a Mac, iPhone or web version later costs a binding rather than a rewrite.</div>
+
+          <details class="more">
+            <summary>Show the architecture</summary>
+            <p class="small" style="margin-top:14px">Tether is built on five named layers, and one commitment underneath them: <strong>the event log is the only truth &mdash; everything else can be deleted and rebuilt from it.</strong></p>
+            <div class="tree">
+              <div class="tree-head"><span>SCALE</span><span>five layers, one rule</span></div>
+              <div class="tree-row"><code>Surface</code><p>The per-device shell &mdash; Android today, desktop and web later. Each one declares what it is capable of, and is given nothing it cannot handle.</p><b>thin</b></div>
+              <div class="tree-row"><code>Core</code><p>Portable Rust: the protocol, encryption, git, the event log, the offline queue. A test forbids it from importing anything device-specific.</p><b>shared</b></div>
+              <div class="tree-row"><code>Atlas</code><p>The project&rsquo;s own knowledge, ranked by how expensive it is to consult, so the cheap answer is found first.</p><b>tiered</b></div>
+              <div class="tree-row"><code>Ledger</code><p>An append-only encrypted log of everything that happened. Every entry is stamped with device, session, agent and order.</p><b>the truth</b></div>
+              <div class="tree-row"><code>Enforcement</code><p>Rules and the checks that hold them, kept together &mdash; because a rule nothing checks is just prose.</p><b>tested</b></div>
+              <div class="arch-note"><strong>Why this pays off.</strong> Crash recovery, moving a session between devices, seeing every machine at once and catching up after being offline are not five features to build. They all fall out of keeping one honest log.</div>
+            </div>
+            <p class="small" style="margin-top:14px">SCALE&rsquo;s Atlas and Enforcement layers are <a href="#practice">CLEAR</a> carried over from Anchor &mdash; the same method, a different language.</p>
+          </details>
+
+
+          <details class="more">
+            <summary>Behind the scenes</summary>
+            <div style="margin-top:16px">
+              <p style="margin-bottom:8px"><strong>What the relay is actually allowed to see.</strong> Each sealed message carries exactly seven fields and nothing else:</p>
+              <div class="wire">
+                <span>session</span><span>device</span><span>sequence</span><span>machine</span><span>agent</span><span>nonce</span><span>ciphertext</span>
+              </div>
+              <ul style="margin-top:14px">
+                <li><strong>No folder names, no repository names, no file paths</strong> &mdash; and no timestamps beyond what the network itself needs. The one readable field is which agent program is running, and it is on the wire only because a blind relay cannot route without it. That trade-off is written down rather than glossed over.</li>
+                <li><strong>Nothing is overwritten.</strong> Every change is appended to a log, and the current state is worked out by replaying it &mdash; so a phone that was offline catches up exactly instead of guessing, and a crash resumes where it stopped.</li>
+                <li><strong>The contract lives in shared test files, not in either language.</strong> Rust and Kotlin both read the same fixtures, so the two halves cannot drift apart while each looks correct on its own. They did exactly that once, which is why the rule exists.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+
+        <div class="seg">
+          <h4>How correctness is held</h4>
+          <ul>
+            <li>The test suite is itself tested: the build deliberately breaks the code and fails if the tests do not notice.</li>
+          </ul>
+          <div class="stats" style="margin-top:18px">
+            <div class="stat"><b>553</b><span>Commits</span></div>
+            <div class="stat"><b>100k</b><span>Lines of Rust</span></div>
+            <div class="stat"><b>33k</b><span>Lines of Kotlin</span></div>
+            <div class="stat"><b>1,056</b><span>Tests</span></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Noto -->
+    <article class="case rv">
+      <aside class="case-side">
+        <h3>Noto</h3>
+        <p class="case-kind">Encrypted notes and tasks</p>
+        <dl class="facts">
+          <div><dt>When</dt><dd>2021</dd></div>
+          <div><dt>Role</dt><dd>Sole engineer</dd></div>
+          <div><dt>Status</dt><dd>Web build live</dd></div>
+        </dl>
+        <div class="stack">
+          <span class="chip">Flutter</span><span class="chip">Flutter Web</span><span class="chip">Salsa20</span>
+        </div>
+        <div class="storelinks">
+          <a href="https://notospace.web.app" target="_blank" rel="noopener">notospace.web.app</a>
+        </div>
+      </aside>
+      <div class="case-body">
+        <p class="outcome">The first thing I ever shipped on my own, and where the privacy thinking behind Anchor started.</p>
+        <div class="seg">
+          <ul>
+            <li>A digital workspace for notes and tasks, with Salsa20-encrypted local storage.</li>
+            <li>The mobile application has been retired; the Flutter Web build remains in service from the same Dart codebase &mdash; my earliest instance of the cross-platform reuse I later relied on for InfoProfile.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ================= CLIENT ENGINEERING ================= -->
+<section id="work">
+  <div class="shell">
+    <div class="kicker rv">Experience</div>
+    <h2>Appinventiv Technologies, 2021 &ndash; present</h2>
+    <p class="sec-intro">Mobile engineer, Flutter and React Native. The projects below are the ones I have spent the most time on, newest first &mdash; what I built, the hardest part of it, and what changed as a result.</p>
+
+    <!-- Al Tazaj -->
+    <article class="case rv">
+      <aside class="case-side">
+        <h3>Al Tazaj</h3>
+        <p class="case-kind">Ordering &amp; loyalty platform</p>
+        <dl class="facts">
+          <div><dt>When</dt><dd>Mar 2026 &ndash; present</dd></div>
+          <div><dt>Client</dt><dd>Middle East quick-service restaurant group</dd></div>
+          <div><dt>My share</dt><dd>475 of 858 source files</dd></div>
+          <div><dt>Status</dt><dd>In development</dd></div>
+        </dl>
+        <div class="stack">
+          <span class="chip">React Native 0.80</span><span class="chip">React 19</span><span class="chip">Realm</span><span class="chip">TanStack Query</span><span class="chip">Sentry</span>
+        </div>
+      </aside>
+      <div class="case-body">
+        <p class="outcome">Built most of a restaurant ordering and loyalty app, and fixed the fault that was leaving its menu blank.</p>
+
+        <div class="seg">
+          <h4>What I built</h4>
+          <ul>
+            <li><strong>Most of the app</strong> &mdash; menu, cart, checkout, order tracking, delivery, profile and loyalty. 15 feature areas, and 475 of its 858 source files.</li>
+            <li><strong>The offers and loyalty system</strong> &mdash; coupons, free items, membership tiers and points &mdash; built so a basket can never be priced wrongly when an offer expires.</li>
+            <li><strong>Safer checkout</strong> &mdash; a declined card no longer empties the customer&rsquo;s basket.</li>
+          </ul>
+        </div>
+
+        <div class="seg">
+          <h4>The hard part</h4>
+          <ul>
+            <li>For some users the menu simply never appeared. The app was saving a note saying &ldquo;your menu is up to date&rdquo; without checking that the menu was actually still there &mdash; so it kept trusting a copy that had gone.</li>
+            <li>I made it confirm the menu is really stored before trusting that note. The menu now loads reliably, and still opens from its saved copy when the phone is offline.</li>
+          </ul>
+        </div>
+
+        <div class="seg">
+          <h4>Result</h4>
+          <ul>
+            <li>The menu loads reliably, online or off.</li>
+            <li>Offers can no longer leave a basket priced wrongly.</li>
+            <li>Arabic and right-to-left support across the app.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- GBSC -->
+    <article class="case rv">
+      <aside class="case-side">
+        <h3>Global Neuro &amp; Spine Care</h3>
+        <p class="case-kind">Healthcare consultation platform</p>
+        <dl class="facts">
+          <div><dt>When</dt><dd>Jul 2024 &ndash; Jan 2026</dd></div>
+          <div><dt>My share</dt><dd>509 of 677 source files</dd></div>
+          <div><dt>Status</dt><dd>Live on both stores</dd></div>
+        </dl>
+        <div class="stack">
+          <span class="chip">Flutter</span><span class="chip">Firebase</span><span class="chip">Agora</span><span class="chip">Shorebird</span>
+        </div>
+        <div class="storelinks">
+          <a href="https://play.google.com/store/apps/details?id=com.globalneuro.care" target="_blank" rel="noopener">Google Play</a>
+          <a href="https://apps.apple.com/in/app/global-neuro-and-spine-care/id6737462963" target="_blank" rel="noopener">App Store</a>
+        </div>
+      </aside>
+      <div class="case-body">
+        <p class="outcome">Shipped a doctor-and-patient platform to both stores, and cut hotfix delivery from days to hours.</p>
+
+        <div class="seg">
+          <h4>What I built</h4>
+          <ul>
+            <li><strong>Appointment scheduling and in-app messaging</strong> for a platform connecting patients, doctors and clinics.</li>
+            <li><strong>The app&rsquo;s navigation and login structure</strong>, which the rest of the team then built on.</li>
+            <li>Worked across almost the whole codebase &mdash; 509 of its 677 source files.</li>
+          </ul>
+        </div>
+
+        <div class="seg">
+          <h4>The hard part</h4>
+          <ul>
+            <li>A healthcare app cannot wait days for App Store review to fix a problem. I added over-the-air updates, so corrections reach patients within hours.</li>
+            <li>I also owned the iOS release process end to end, through to submission.</li>
+          </ul>
+        </div>
+
+        <div class="seg">
+          <h4>Result</h4>
+          <ul>
+            <li>Live on the App Store and Google Play.</li>
+            <li>Fixes reach users the same day.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- ATICO -->
+    <article class="case rv">
+      <aside class="case-side">
+        <h3>ATICO Fakhreldin Group</h3>
+        <p class="case-kind">Hospitality loyalty &amp; ordering</p>
+        <dl class="facts">
+          <div><dt>When</dt><dd>2024 &ndash; 2025</dd></div>
+          <div><dt>Client</dt><dd>Hospitality group, Jordan</dd></div>
+          <div><dt>Status</dt><dd>Live on both stores</dd></div>
+        </dl>
+        <div class="stack"><span class="chip">Flutter</span></div>
+        <div class="storelinks">
+          <a href="https://play.google.com/store/apps/details?id=com.jo.atico" target="_blank" rel="noopener">Google Play</a>
+          <a href="https://apps.apple.com/jo/app/atico-fakhreldin-group/id1502888604" target="_blank" rel="noopener">App Store</a>
+        </div>
+      </aside>
+      <div class="case-body">
+        <p class="outcome">Took an application that was terminating under the weight of its own menu and made it stable enough to ship.</p>
+
+        <div class="seg">
+          <h4>The hard part</h4>
+          <ul>
+            <li>The product menu was large enough that loading and rendering it exhausted device memory, terminating the application.</li>
+            <li>I introduced local menu caching and reworked the load and render path, which eliminated the crashes.</li>
+            <li>I then rebuilt menu search to stay responsive across the full catalogue, and corrected scrolling and filtering &mdash; including a positional defect where the selected category and the visible items disagreed.</li>
+          </ul>
+        </div>
+
+        <div class="seg">
+          <h4>What I built</h4>
+          <ul>
+            <li>The <strong>ATICO Jewels</strong> loyalty programme &mdash; QR-based point accrual, three membership tiers, and points redeemable against spend.</li>
+            <li>Reservations, scheduled ordering, order tracking and gift cards, in Arabic and English.</li>
+          </ul>
+        </div>
+
+        <div class="seg">
+          <h4>Result</h4>
+          <ul>
+            <li>The crashes stopped and the application reached public release on both stores.</li>
+            <li>Search, scrolling and filtering behave correctly across the full catalogue.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- Penda -->
+    <article class="case rv">
+      <aside class="case-side">
+        <h3>Penda</h3>
+        <p class="case-kind">Social commerce marketplace</p>
+        <dl class="facts">
+          <div><dt>When</dt><dd>2024</dd></div>
+          <div><dt>Role</dt><dd>Lead engineer</dd></div>
+          <div><dt>My share</dt><dd>Largest individual contribution</dd></div>
+        </dl>
+        <div class="stack">
+          <span class="chip">Flutter</span><span class="chip">BLoC</span><span class="chip">get_it</span><span class="chip">dartz</span>
+        </div>
+      </aside>
+      <div class="case-body">
+        <p class="outcome">Led a greenfield marketplace from empty repository to a working product with chat, a short-video feed and seller storefronts.</p>
+
+        <div class="seg">
+          <h4>What I built</h4>
+          <ul>
+            <li><strong>Short-video feed</strong>, paginated discovery with comments, real-time chat, product pages and seller storefronts.</li>
+            <li>On Clean Architecture &mdash; BLoC for state, <code>get_it</code> for dependency injection, <code>dartz</code> for typed error handling.</li>
+          </ul>
+        </div>
+
+        <div class="seg">
+          <h4>The hard part</h4>
+          <ul>
+            <li>A scrolling video feed accumulates players and leaks memory. I cached video and drove playback from the viewport, so <strong>only the visible item holds a player</strong>.</li>
+            <li>Uploads pass through compression scaled to the source rather than a fixed setting.</li>
+          </ul>
+        </div>
+
+        <div class="seg">
+          <h4>Result</h4>
+          <ul>
+            <li>A feed that holds memory flat while scrolling.</li>
+            <li>A codebase other engineers could extend, on one consistent architecture.</li>
+            <li>In the same period I was sole maintainer of the shipped Flutter portfolio &mdash; framework migrations and breaking dependency upgrades with no production regression, and Play target-API compliance met ahead of enforcement.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- Earlier -->
+    <article class="case rv">
+      <aside class="case-side">
+        <h3>Earlier engagements</h3>
+        <p class="case-kind">2021 &ndash; 2023</p>
+      </aside>
+      <div class="case-body">
+        <div class="seg">
+          <ul>
+            <li><strong>InfoProfile</strong> &mdash; adaptive layout from handset to desktop, Stripe subscriptions establishing the platform&rsquo;s first revenue stream, and map-based proximity discovery with post-level privacy controls. Delivered across the mobile application and the Flutter Web product.</li>
+            <li><strong>Boudl Hotels &amp; Resorts</strong> &mdash; legacy Oracle SOAP services integrated into a Flutter client with no server-side modification, and the reservation funnel rebuilt as a responsive flow.</li>
+            <li><strong>Shoona</strong> &mdash; interface foundation, automated slot booking, and Agora calling optimised over persistent sockets.</li>
+            <li><strong>Involved</strong> &mdash; an in-application GIF keyboard on the Tenor API, so members could search and send media without leaving the conversation.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ================= DESIGN ================= -->
+<section id="design">
+  <div class="shell">
+    <div class="kicker rv">Design</div>
+    <h2>Design systems</h2>
+    <p class="sec-intro">I specify the product as well as build it. Anchor is on its second design system, written in full before implementation began. It is a re-layer rather than a reskin: every feature is kept, while layout, hierarchy, typography, colour and motion are rebuilt. Four decisions govern it.</p>
+
+    <div class="blocks">
+      <div class="block">
+        <h4>Structural</h4>
+        <ul>
+          <li><strong>Additive by construction.</strong> Every surface is the same three parts: panel, label row, optional drawer. A new feature becomes a row inside an existing group, never a new card. The home screen does not lengthen as the product grows.</li>
+          <li><strong>Progressive disclosure.</strong> Secondary depth resides in in-place drawers rather than additional screens.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Expressive</h4>
+        <ul>
+          <li><strong>Theme as configuration.</strong> Four palettes and a night mode are driven by a single token set; adding a fifth is a data entry, not a redesign.</li>
+          <li><strong>Restrained motion.</strong> Entry and open transitions only. Nothing loops, drifts, or fills in the manner of a progress indicator &mdash; the latter is prohibited by the product's own rule against displaying what remains.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="quote">
+      <p>Colour carries mood, not status. Softness reads as safety. Motion should be biological, not mechanical.</p>
+      <cite>Three of the eleven principles the design system is specified against</cite>
+    </div>
+
+    <p class="small" style="max-width:var(--measure)">The mascot is rendered in code, not shipped as artwork. It has to morph across five moods and five palettes, so it is a <code>CustomPainter</code> taking size, mood and theme. All geometry is a fraction of its size, so one implementation serves both the 46-pixel and the 170-pixel instance. Artwork would have meant twenty-five exported files and a redraw on every palette change.</p>
+    <p class="small" style="max-width:var(--measure);margin-top:12px">The specification covers design psychology, every screen, the mascot, an illustration set and a working prototype &mdash; built across 19 files.</p>
+  </div>
+</section>
+
+<!-- ================= PRACTICE (dark band) ================= -->
+<section id="practice" class="band">
+  <div class="shell">
+   <div class="deep">
+    <div class="kicker rv">Practice</div>
+    <h2>How I keep code correct</h2>
+    <p class="sec-intro">The same habit runs through client work and my own: a rule that nothing enforces is a rule that will quietly stop being true, so I put correctness in the build rather than in a convention.</p>
+
+    <div class="blocks" style="margin-bottom:10px">
+      <div class="block">
+        <h4>In client work</h4>
+        <ul>
+          <li><strong>Al Tazaj</strong> &mdash; role-based menu visibility verified across all four flag states, so employee-only items cannot reach a public menu through an untested combination.</li>
+          <li><strong>Global Neuro &amp; Spine Care</strong> &mdash; over-the-air update capability, so a defect found in production is not held hostage by a store review queue.</li>
+          <li><strong>Penda</strong> &mdash; framework migrations and breaking dependency upgrades across a shipped portfolio with no production regression.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>In my own projects</h4>
+        <ul>
+          <li><strong>Tether</strong> &mdash; the test suite is itself tested: the build deliberately breaks the code and fails if the tests do not notice.</li>
+          <li><strong>Anchor</strong> &mdash; the clearest example, because the stakes are highest. Its safety requirements are not documentation; they are assertions that fail the build.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="sec-intro" style="margin-bottom:0">Anchor&rsquo;s safety rules, exactly as the build enforces them:</p>
+
+    <div class="manifest">
+      <div class="mhead"><span>anchor &mdash; safety rules</span><b>the build fails if one breaks</b></div>
+      <div class="mrow"><span class="tick">&#10003;</span><div><q>The written clinical specification and the code must agree, in both directions.</q><cite>test/safety_spec_test.dart</cite></div></div>
+      <div class="mrow"><span class="tick">&#10003;</span><div><q>Ordinary distress is never treated as a crisis. &ldquo;I failed my midterm&rdquo; must not return a helpline.</q><cite>test/risk_detector_test.dart</cite></div></div>
+      <div class="mrow"><span class="tick">&#10003;</span><div><q>No AI-written words may ever reach someone in crisis.</q><cite>lib/ai/safety/composition_guard.dart</cite></div></div>
+      <div class="mrow"><span class="tick">&#10003;</span><div><q>A phone number counts as verified only when a person has actually dialled it.</q><cite>test/crisis_resources_test.dart</cite></div></div>
+      <div class="mrow"><span class="tick">&#10003;</span><div><q>What the app remembers is categories, never the words someone wrote.</q><cite>lib/ai/memory.dart</cite></div></div>
+      <div class="mrow"><span class="tick">&#10003;</span><div><q>Startup can never crash. A blank screen would mean no crisis resources.</q><cite>lib/startup.dart</cite></div></div>
+      <div class="mrow"><span class="tick">&#10003;</span><div><q>Every file is covered by a test, or carries a written reason why not.</q><cite>test/lib_coverage_test.dart</cite></div></div>
+    </div>
+
+    <div style="margin-top:34px">
+      <h4 style="margin-bottom:10px">The method &mdash; used on Anchor and Tether</h4>
+      <p class="sec-intro" style="margin-bottom:14px">Rules have to survive the person who wrote them. I keep five layers, each a real file rather than a concept. I designed this on <strong>Anchor</strong> (Flutter), then carried it into <strong>Tether</strong> (Rust and Kotlin), where it became SCALE&rsquo;s Atlas and Enforcement layers.</p>
+      <div class="manifest">
+        <div class="mhead"><span>CLEAR</span><b>five layers, kept separate on purpose</b></div>
+        <div class="mrow"><span class="tick">C</span><div><q>Continuity &mdash; what is happening now, and what a previous session left unfinished.</q><cite>CONTEXT.md</cite></div></div>
+        <div class="mrow"><span class="tick">L</span><div><q>Law &mdash; the rules, in one file, each marked with whether a test enforces it or nothing does.</q><cite>AGENTS.md</cite></div></div>
+        <div class="mrow"><span class="tick">E</span><div><q>Enforcement &mdash; every rule that can be checked, written as a test that fails.</q><cite>test/</cite></div></div>
+        <div class="mrow"><span class="tick">A</span><div><q>Atlas &mdash; why each decision was made, and what the evidence was.</q><cite>docs/</cite></div></div>
+        <div class="mrow"><span class="tick">R</span><div><q>Record &mdash; what is true today, and an append-only history of how it got there.</q><cite>STATUS.md</cite></div></div>
+      </div>
+      <p class="small" style="color:var(--deep-ink-2);margin-top:16px;max-width:var(--measure)"><strong style="color:var(--deep-ink)">The value is the loop between them.</strong> An incident is written down in full, including the embarrassing part, then distilled into a one-line rule, and that rule becomes a test that fails. A mistake is only finished when it cannot happen again quietly. Four of the five layers are plain markdown &mdash; only Enforcement needs a toolchain, and only a test suite in CI.</p>
+    </div>
+
+    <div class="blocks" style="margin-top:32px">
+      <div class="block">
+        <h4>What the layers hold in practice</h4>
+        <ul>
+          <li>A catalogue of failure modes &mdash; each one a real incident from the repository, paired with the specific check that would have caught it.</li>
+          <li>An onboarding budget enforced by test: documentation carries a word cap derived from the existing corpus, because instructions nobody finishes are instructions nobody follows.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Recovering from interruption</h4>
+        <ul>
+          <li>Every file write is checkpointed to a private git reference, so work interrupted mid-task is recoverable without polluting the project history.</li>
+          <li>Concurrency rules learned the hard way &mdash; git worktrees isolate the working tree, but not the index, the stash or <code>HEAD</code>. That is a written-up incident, not a hypothetical.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="small" style="color:var(--deep-ink-2);margin-top:26px;max-width:var(--measure)">The principle that transfers: <strong style="color:var(--deep-ink)">a rule you merely discourage is not a rule.</strong> If something must never happen, it has to be impossible, not just unlikely.</p>
+  </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills">
+  <div class="shell">
+    <div class="kicker rv">Skills</div>
+    <h2>What I work with</h2>
+    <p class="sec-intro">Delivery has centred on Flutter and React Native, but the work has repeatedly required native Android and iOS, Rust, and web. I choose the platform the problem calls for.</p>
+    <div class="skills">
+      <div class="skill"><h4>Languages</h4><p>Dart, Kotlin, Swift, Rust, TypeScript, JavaScript, SQL</p></div>
+      <div class="skill"><h4>Mobile &amp; frontend</h4><p>Flutter, Flutter Web, React Native, Jetpack Compose, SwiftUI, UIKit, Dart FFI, platform channels, UniFFI</p></div>
+      <div class="skill"><h4>Architecture</h4><p>Clean Architecture, BLoC, MVVM, dependency injection, offline-first synchronisation, repository pattern</p></div>
+      <div class="skill"><h4>Data &amp; backend</h4><p>Firebase (Authentication, Firestore, Cloud Messaging, Crashlytics), Realm, SQLite, TanStack Query, REST, SOAP, WebSockets</p></div>
+      <div class="skill"><h4>AI integration</h4><p>On-device inference (llama.cpp, GGUF), model compression and sizing, constrained decoding, ONNX Runtime, embeddings, text classification, abstention thresholds</p></div>
+      <div class="skill"><h4>Delivery</h4><p>Unit, widget and mutation testing, Sentry, Shorebird code push, GitHub Actions, Google Play Console, App Store Connect, release signing</p></div>
+    </div>
+    <p class="small" style="margin-top:26px">B.Tech, Computer Science &amp; Engineering &mdash; Jamia Hamdard, New Delhi, 2017&ndash;2021. Secure and Private AI Scholarship, Udacity. Delivered a workshop on mobile development with Flutter for the CSI student chapter.</p>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="strengths">
+  <div class="shell">
+    <div class="kicker rv">Strengths</div>
+    <h2>Six things I do well</h2>
+    <p class="sec-intro">Each one is backed by something on this page &mdash; an app you can download, a defect I diagnosed, or a system I designed.</p>
+    <div class="svc">
+      <div class="svc-item rv">
+        <span class="svc-num">Ship</span>
+        <h3>Take a product from nothing to the store</h3>
+        <p>Architecture, implementation, release pipeline, certificates and submission. <strong>Five applications in public release</strong> across healthcare, hospitality, retail and professional services &mdash; and on one of them, over-the-air updates so fixes reach users in hours rather than days.</p>
+      </div>
+      <div class="svc-item rv">
+        <span class="svc-num">Rescue</span>
+        <h3>Fix an app that is already failing</h3>
+        <p>Twice I have been handed an application breaking under the weight of its own catalogue &mdash; <strong>one crashing on launch, one showing a blank menu</strong> &mdash; and returned both to service. Memory pressure, caching defects, slow lists, state that disagrees with itself.</p>
+      </div>
+      <div class="svc-item rv">
+        <span class="svc-num">Deliver</span>
+        <h3>Move quickly without trading away correctness</h3>
+        <p>I use modern AI development tooling daily. What makes it produce something trustworthy is the engineering around it: rules recorded as tests that fail, a catalogue of past incidents paired with the checks that catch them, and a written standard separating what is enforced from what is merely hoped for. <strong>Speed only counts if correctness is not the thing being spent.</strong></p>
+      </div>
+      <div class="svc-item rv">
+        <span class="svc-num">Architect</span>
+        <h3>Design the system, not just write the code</h3>
+        <p>Two named architectures running in production, and a five-layer engineering method I designed on one project and <strong>carried into another in a different language</strong>. I define the structure and the rules that keep it true, then build inside them.</p>
+      </div>
+      <div class="svc-item rv">
+        <span class="svc-num">Specify</span>
+        <h3>Design the product as well as build it</h3>
+        <p>A complete design system written before a line of it was implemented: <strong>one set of values driving four themes and a night mode</strong>, a mascot drawn in code rather than exported as artwork, and eleven principles each argued from why it helps the person using the app.</p>
+      </div>
+      <div class="svc-item rv">
+        <span class="svc-num">Integrate</span>
+        <h3>Add AI where it earns its place</h3>
+        <p>Most AI in products is bolted on and expensive to run. In Anchor it is <strong>optional at every level</strong> &mdash; a small model, compressed to run on the phone, that only rewrites already-approved wording. It costs nothing when a device cannot run it, and the product never depends on it. Choosing the smallest model that clears the bar, and knowing where not to use one at all, is most of the work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="shell">
+    <div class="contact">
+      <div class="kicker rv">Contact</div>
+      <h2>Get in touch</h2>
+      <p class="sec-intro" style="margin-bottom:0">I am looking for a mobile or systems engineering role &mdash; particularly on-device inference, cross-platform architecture, and products where correctness carries real consequence. Happy to walk through either private repository in an interview.</p>
+      <div class="cta">
+        <a class="primary" href="mailto:shahidkhan9382@gmail.com">shahidkhan9382@gmail.com</a>
+        <a href="https://linkedin.com/in/shahid-khan61" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/Shahid6161" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <footer class="shell" style="padding-left:0;padding-right:0">
+      <span>Shahid Khan &middot; New Delhi, India</span>
+      <span>Figures measured from source, September 2026</span>
+    </footer>
+  </div>
+</section>
+
+</main>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var btn = document.getElementById('theme');
+  function current() {
+    var set = root.getAttribute('data-theme');
+    if (set) return set;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  try {
+    var saved = localStorage.getItem('theme');
+    if (saved === 'dark' || saved === 'light') root.setAttribute('data-theme', saved);
+  } catch (e) {}
+  var paint = function () {
+    if (!btn) return;
+    var next = current() === 'dark' ? 'light' : 'dark';
+    btn.setAttribute('aria-label', 'Switch to ' + next + ' theme');
+  };
+  paint();
+  if (btn) {
+    btn.addEventListener('click', function () {
+      var next = current() === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      paint();
+    });
+  }
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', paint);
+  root.classList.add('js');
+
+  // The toggle is centred against the sticky nav, so it must know the nav's
+  // real height rather than assume one.
+  var navEl = document.querySelector('.nav');
+  var syncNav = function () {
+    if (!navEl) return;
+    root.style.setProperty('--navh', Math.round(navEl.getBoundingClientRect().height) + 'px');
+  };
+  syncNav();
+  window.addEventListener('resize', syncNav);
+  window.addEventListener('load', syncNav);
+  if (window.ResizeObserver && navEl) new ResizeObserver(syncNav).observe(navEl);
+
+  var prog = document.getElementById('prog');
+  if (prog) {
+    var tick = function () {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      var r = h > 0 ? window.scrollY / h : 0;
+      prog.style.transform = 'scaleX(' + Math.min(1, Math.max(0, r)) + ')';
+    };
+    window.addEventListener('scroll', tick, { passive: true });
+    window.addEventListener('resize', tick);
+    tick();
+  }
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var rvs = Array.prototype.slice.call(document.querySelectorAll('.rv'));
+
+  if (reduce) {
+    rvs.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    // Sweep: reveal anything at or above the fold. Cannot miss an element the
+    // way an IntersectionObserver does when the page jumps to an anchor.
+    var sweep = function () {
+      var limit = window.innerHeight * 0.92;
+      for (var i = rvs.length - 1; i >= 0; i--) {
+        var el = rvs[i];
+        if (el.getBoundingClientRect().top < limit) {
+          el.classList.add('in');
+          rvs.splice(i, 1);
+        }
+      }
+    };
+    var queued = false;
+    var onScroll = function () {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(function () { queued = false; sweep(); });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    window.addEventListener('load', sweep);
+    sweep();
+    // Failsafe: nothing stays invisible, whatever happens.
+    setTimeout(function () {
+      document.querySelectorAll('.rv:not(.in)').forEach(function (el) { el.classList.add('in'); });
+    }, 4000);
+  }
+
+  // count-up on stat figures
+  if (!reduce && 'IntersectionObserver' in window) {
+    var co = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var el = e.target; co.unobserve(el);
+        var raw = el.textContent.trim();
+        var m = raw.match(/^([0-9][0-9,]*)(.*)$/);
+        if (!m) return;
+        var target = parseInt(m[1].replace(/,/g, ''), 10);
+        var suffix = m[2] || '';
+        if (!target || target < 4) return;
+        var t0 = null, dur = 1100;
+        function step(ts) {
+          if (!t0) t0 = ts;
+          var p = Math.min(1, (ts - t0) / dur);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(target * eased).toLocaleString('en-US') + suffix;
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }, { threshold: .5 });
+    Array.prototype.forEach.call(document.querySelectorAll('.stat b'), function (el) { co.observe(el); });
+  }
+
+  // One interaction for every card: the shine follows the cursor, and the card
+  // tilts and drifts a few pixels in the direction the cursor is from centre.
+  if (!reduce) {
+    var interactive = document.querySelectorAll('.card, .svc-item, .contact, .stat, .skill');
+    Array.prototype.forEach.call(interactive, function (el) {
+      el.addEventListener('pointermove', function (e) {
+        var r = el.getBoundingClientRect();
+        var x = e.clientX - r.left, y = e.clientY - r.top;
+        var fx = (x / r.width) - 0.5, fy = (y / r.height) - 0.5;
+        el.style.setProperty('--mx', x + 'px');
+        el.style.setProperty('--my', y + 'px');
+        var small = el.classList.contains('stat') || el.classList.contains('skill');
+        var move = small ? 4 : 10, tilt = small ? 0 : 5;
+        el.style.setProperty('--px', (fx * move).toFixed(1) + 'px');
+        el.style.setProperty('--py', (fy * move).toFixed(1) + 'px');
+        el.style.setProperty('--tx', (fx * tilt).toFixed(2) + 'deg');
+        el.style.setProperty('--ty', (-fy * tilt).toFixed(2) + 'deg');
+      });
+      el.addEventListener('pointerleave', function () {
+        el.style.setProperty('--px', '0px');
+        el.style.setProperty('--py', '0px');
+        el.style.setProperty('--tx', '0deg');
+        el.style.setProperty('--ty', '0deg');
+      });
+    });
+  }
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav a'));
+  var targets = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var i = targets.indexOf(en.target);
+        if (i < 0) return;
+        links.forEach(function (l) { l.classList.remove('on'); });
+        links[i].classList.add('on');
+      });
+    }, { rootMargin: '-10% 0px -75% 0px' });
+    targets.forEach(function (t) { if (t) io.observe(t); });
+  }
+})();
+</script>
+
+</body></html>
