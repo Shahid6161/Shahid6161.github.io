@@ -724,10 +724,10 @@ html{scroll-behavior:smooth}
     <h2>Work I own end to end</h2>
     <p class="sec-intro">Products I build on my own, where I make every decision &mdash; the architecture, the safety model, the design and the code. Two are in progress; the third was the first thing I ever shipped.</p>
 
-    <!-- Anchor -->
+    <!-- Moorwell -->
     <article class="case rv">
       <aside class="case-side">
-        <h3>Anchor</h3>
+        <h3>Moorwell</h3>
         <p class="case-kind">Offline-first mental health application</p>
         <dl class="facts">
           <div><dt>When</dt><dd>2026 &ndash; present</dd></div>
@@ -737,6 +737,9 @@ html{scroll-behavior:smooth}
         </dl>
         <div class="stack">
           <span class="chip">Flutter</span><span class="chip">Dart FFI</span><span class="chip">llama.cpp</span><span class="chip">GBNF</span><span class="chip">ONNX Runtime</span><span class="chip">Qwen2.5-0.5B</span>
+        </div>
+        <div class="storelinks">
+          <a href="https://moorwell.app" target="_blank" rel="noopener">moorwell.app</a>
         </div>
       </aside>
       <div class="case-body">
@@ -800,7 +803,7 @@ html{scroll-behavior:smooth}
               <li><strong>What it remembers are categories, not words.</strong> It records that someone tends to prefer short, low-effort suggestions at night &mdash; never the sentence they typed. That memory fades, so a bad week cannot define someone permanently.</li>
               <li><strong>The classifier may say &ldquo;I don&rsquo;t know&rdquo;.</strong> Reading emotion from text is unreliable, so it declines rather than guesses and the app asks instead. Accuracy comes from knowing when to abstain.</li>
               <li><strong>Everything in the app varies to avoid repeating itself &mdash; except the crisis wording.</strong> That stays a fixed set of five human-written responses. Adding variety there would mean showing someone words nobody had reviewed, at the worst possible moment.</li>
-              <li><strong>Most mental-health apps break when the network does.</strong> Anchor answers fully at the base level, so a weak signal, an old phone or a failed model changes nothing the user can see.</li>
+              <li><strong>Most mental-health apps break when the network does.</strong> Moorwell answers fully at the base level, so a weak signal, an old phone or a failed model changes nothing the user can see.</li>
             </ul>
           </details>
         </div>
@@ -858,7 +861,7 @@ html{scroll-behavior:smooth}
               <div class="tree-row"><code>Enforcement</code><p>Rules and the checks that hold them, kept together &mdash; because a rule nothing checks is just prose.</p><b>tested</b></div>
               <div class="arch-note"><strong>Why this pays off.</strong> Crash recovery, moving a session between devices, seeing every machine at once and catching up after being offline are not five features to build. They all fall out of keeping one honest log.</div>
             </div>
-            <p class="small" style="margin-top:14px">SCALE&rsquo;s Atlas and Enforcement layers are <a href="#practice">CLEAR</a> carried over from Anchor &mdash; the same method, a different language.</p>
+            <p class="small" style="margin-top:14px">SCALE&rsquo;s Atlas and Enforcement layers are <a href="#practice">CLEAR</a> carried over from Moorwell &mdash; the same method, a different language.</p>
           </details>
 
 
@@ -911,7 +914,7 @@ html{scroll-behavior:smooth}
         </div>
       </aside>
       <div class="case-body">
-        <p class="outcome">The first thing I ever shipped on my own, and where the privacy thinking behind Anchor started.</p>
+        <p class="outcome">The first thing I ever shipped on my own, and where the privacy thinking behind Moorwell started.</p>
         <div class="seg">
           <ul>
             <li>A digital workspace for notes and tasks, with Salsa20-encrypted local storage.</li>
@@ -1139,7 +1142,7 @@ html{scroll-behavior:smooth}
   <div class="shell">
     <div class="kicker rv">Design</div>
     <h2>Design systems</h2>
-    <p class="sec-intro">I specify the product as well as build it. Anchor is on its second design system, written in full before implementation began. It is a re-layer rather than a reskin: every feature is kept, while layout, hierarchy, typography, colour and motion are rebuilt. Four decisions govern it.</p>
+    <p class="sec-intro">I specify the product as well as build it. Moorwell is on its second design system, written in full before implementation began. It is a re-layer rather than a reskin: every feature is kept, while layout, hierarchy, typography, colour and motion are rebuilt. Four decisions govern it.</p>
 
     <div class="blocks">
       <div class="block">
@@ -1189,15 +1192,15 @@ html{scroll-behavior:smooth}
         <h4>In my own projects</h4>
         <ul>
           <li><strong>Tether</strong> &mdash; the test suite is itself tested: the build deliberately breaks the code and fails if the tests do not notice.</li>
-          <li><strong>Anchor</strong> &mdash; the clearest example, because the stakes are highest. Its safety requirements are not documentation; they are assertions that fail the build.</li>
+          <li><strong>Moorwell</strong> &mdash; the clearest example, because the stakes are highest. Its safety requirements are not documentation; they are assertions that fail the build.</li>
         </ul>
       </div>
     </div>
 
-    <p class="sec-intro" style="margin-bottom:0">Anchor&rsquo;s safety rules, exactly as the build enforces them:</p>
+    <p class="sec-intro" style="margin-bottom:0">Moorwell&rsquo;s safety rules, exactly as the build enforces them:</p>
 
     <div class="manifest">
-      <div class="mhead"><span>anchor &mdash; safety rules</span><b>the build fails if one breaks</b></div>
+      <div class="mhead"><span>moorwell &mdash; safety rules</span><b>the build fails if one breaks</b></div>
       <div class="mrow"><span class="tick">&#10003;</span><div><q>The written clinical specification and the code must agree, in both directions.</q><cite>test/safety_spec_test.dart</cite></div></div>
       <div class="mrow"><span class="tick">&#10003;</span><div><q>Ordinary distress is never treated as a crisis. &ldquo;I failed my midterm&rdquo; must not return a helpline.</q><cite>test/risk_detector_test.dart</cite></div></div>
       <div class="mrow"><span class="tick">&#10003;</span><div><q>No AI-written words may ever reach someone in crisis.</q><cite>lib/ai/safety/composition_guard.dart</cite></div></div>
@@ -1208,8 +1211,8 @@ html{scroll-behavior:smooth}
     </div>
 
     <div style="margin-top:34px">
-      <h4 style="margin-bottom:10px">The method &mdash; used on Anchor and Tether</h4>
-      <p class="sec-intro" style="margin-bottom:14px">Rules have to survive the person who wrote them. I keep five layers, each a real file rather than a concept. I designed this on <strong>Anchor</strong> (Flutter), then carried it into <strong>Tether</strong> (Rust and Kotlin), where it became SCALE&rsquo;s Atlas and Enforcement layers.</p>
+      <h4 style="margin-bottom:10px">The method &mdash; used on Moorwell and Tether</h4>
+      <p class="sec-intro" style="margin-bottom:14px">Rules have to survive the person who wrote them. I keep five layers, each a real file rather than a concept. I designed this on <strong>Moorwell</strong> (Flutter), then carried it into <strong>Tether</strong> (Rust and Kotlin), where it became SCALE&rsquo;s Atlas and Enforcement layers.</p>
       <div class="manifest">
         <div class="mhead"><span>CLEAR</span><b>five layers, kept separate on purpose</b></div>
         <div class="mrow"><span class="tick">C</span><div><q>Continuity &mdash; what is happening now, and what a previous session left unfinished.</q><cite>CONTEXT.md</cite></div></div>
@@ -1296,7 +1299,7 @@ html{scroll-behavior:smooth}
       <div class="svc-item rv">
         <span class="svc-num">Integrate</span>
         <h3>Add AI where it earns its place</h3>
-        <p>Most AI in products is bolted on and expensive to run. In Anchor it is <strong>optional at every level</strong> &mdash; a small model, compressed to run on the phone, that only rewrites already-approved wording. It costs nothing when a device cannot run it, and the product never depends on it. Choosing the smallest model that clears the bar, and knowing where not to use one at all, is most of the work.</p>
+        <p>Most AI in products is bolted on and expensive to run. In Moorwell it is <strong>optional at every level</strong> &mdash; a small model, compressed to run on the phone, that only rewrites already-approved wording. It costs nothing when a device cannot run it, and the product never depends on it. Choosing the smallest model that clears the bar, and knowing where not to use one at all, is most of the work.</p>
       </div>
     </div>
   </div>
