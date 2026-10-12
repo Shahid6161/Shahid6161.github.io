@@ -722,7 +722,7 @@ html{scroll-behavior:smooth}
   <div class="shell">
     <div class="kicker rv">Projects</div>
     <h2>Work I own end to end</h2>
-    <p class="sec-intro">Products I build on my own, where I make every decision &mdash; the architecture, the safety model, the design and the code. Two are in progress; the third was the first thing I ever shipped.</p>
+    <p class="sec-intro">Products I build on my own, where I make every decision &mdash; the architecture, the safety model, the design and the code. Three are in progress; the fourth was the first thing I ever shipped.</p>
 
     <!-- Moorwell -->
     <article class="case rv">
@@ -891,6 +891,73 @@ html{scroll-behavior:smooth}
             <div class="stat"><b>100k</b><span>Lines of Rust</span></div>
             <div class="stat"><b>33k</b><span>Lines of Kotlin</span></div>
             <div class="stat"><b>1,056</b><span>Tests</span></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Quern -->
+    <article class="case rv">
+      <aside class="case-side">
+        <h3>Quern</h3>
+        <p class="case-kind">AI notes from anything you save</p>
+        <dl class="facts">
+          <div><dt>When</dt><dd>2026 &ndash; present</dd></div>
+          <div><dt>Role</dt><dd>Sole engineer and designer</dd></div>
+          <div><dt>Shape</dt><dd>Flutter app, Dart core, Python gateway</dd></div>
+          <div><dt>Status</dt><dd>In development</dd></div>
+        </dl>
+        <div class="stack">
+          <span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">Supabase</span><span class="chip">FastAPI</span><span class="chip">Cloud Run</span><span class="chip">SQLite</span><span class="chip">AES-GCM</span>
+        </div>
+      </aside>
+      <div class="case-body">
+        <p class="outcome">Share a reel, video, link, PDF or voice note and get a typed, editable note &mdash; then ask across everything you have saved, with answers that cite the note they came from.</p>
+
+        <div class="seg">
+          <h4>How it is built</h4>
+          <p style="margin-bottom:4px">The phone owns your notes. The server only does what costs money, and the AI behind it can be swapped without shipping an update.</p>
+          <div class="flow">
+            <div class="node">
+              <span class="node-tag">what you hold</span>
+              <h5>Phone</h5>
+              <p>Every note lives in an encrypted database on the device and works with the network off. Plain notes stay plain &mdash; AI runs only when asked, with Keep or Undo.</p>
+            </div>
+            <div class="node mid">
+              <span class="node-tag">what holds the keys</span>
+              <h5>Gateway</h5>
+              <p>A thin Python service and the only thing holding vendor keys. It turns a shared link or file into a structured note, and meters what each one costs.</p>
+            </div>
+            <div class="node">
+              <span class="node-tag">what can change</span>
+              <h5>AI providers</h5>
+              <p>Every AI step sits behind its own layer. Which provider and model it uses is server configuration, switched remotely, never a code change.</p>
+            </div>
+          </div>
+          <div class="flow-note"><strong>The ledger is the only truth.</strong> Every change is an append-only event, and every screen is a projection of that log &mdash; the same idea as Tether, carried into a different product.</div>
+
+          <details class="more">
+            <summary>Behind the scenes</summary>
+            <ul style="margin-top:14px">
+              <li><strong>The model never rewrites your words.</strong> When it tidies a note it returns the numbers of the pieces to keep and in what order; the server writes every item from the original. Checking a model&rsquo;s rewrites kept missing cases, so the design removed the chance to do harm.</li>
+              <li><strong>Three levels of privacy.</strong> Standard sync; an app lock with an encrypted on-phone database; and opt-in end-to-end locked notes, with secret fields inside them. Every feature works on ordinary notes.</li>
+              <li><strong>Every feature has a server-side switch.</strong> Any module can be turned off remotely without touching data, and a short list &mdash; notes, locked notes, account, backup &mdash; can never be switched off.</li>
+              <li><strong>One bad item never stops the rest.</strong> An unreadable row is quarantined rather than fatal, and one malformed server event cannot stall sync for everything behind it.</li>
+              <li><strong>Nothing is hard-coded twice.</strong> Strings, numbers, motion, icons and shared widgets each live in one place, held by build gates that fail if a new one slips in outside it.</li>
+            </ul>
+          </details>
+        </div>
+
+        <div class="seg">
+          <h4>How correctness is held</h4>
+          <ul>
+            <li>Every hard rule is a gate the build runs, so a rule cannot quietly stop being true.</li>
+          </ul>
+          <div class="stats" style="margin-top:18px">
+            <div class="stat"><b>4,563</b><span>Commits</span></div>
+            <div class="stat"><b>102k</b><span>Lines of Dart</span></div>
+            <div class="stat"><b>29k</b><span>Lines of Python</span></div>
+            <div class="stat"><b>3,000+</b><span>Tests</span></div>
           </div>
         </div>
       </div>
@@ -1311,7 +1378,7 @@ html{scroll-behavior:smooth}
     <div class="contact">
       <div class="kicker rv">Contact</div>
       <h2>Get in touch</h2>
-      <p class="sec-intro" style="margin-bottom:0">I am looking for a mobile or systems engineering role &mdash; particularly on-device inference, cross-platform architecture, and products where correctness carries real consequence. Happy to walk through either private repository in an interview.</p>
+      <p class="sec-intro" style="margin-bottom:0">I am looking for a mobile or systems engineering role &mdash; particularly on-device inference, cross-platform architecture, and products where correctness carries real consequence. Happy to walk through any of the private repositories in an interview.</p>
       <div class="cta">
         <a class="primary" href="mailto:shahidkhan9382@gmail.com">shahidkhan9382@gmail.com</a>
         <a href="https://linkedin.com/in/shahid-khan61" target="_blank" rel="noopener">LinkedIn</a>
@@ -1320,7 +1387,7 @@ html{scroll-behavior:smooth}
     </div>
     <footer class="shell" style="padding-left:0;padding-right:0">
       <span>Shahid Khan &middot; New Delhi, India</span>
-      <span>Figures measured from source, September 2026</span>
+      <span>Figures measured from source, October 2026</span>
     </footer>
   </div>
 </section>
