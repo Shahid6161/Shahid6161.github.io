@@ -662,7 +662,7 @@ html{scroll-behavior:smooth}
       <div class="card rv">
         <span class="badge"><i></i>Live &middot; 50K+ downloads &middot; 4.9&#9733;</span>
         <h3>Global Neuro &amp; Spine Care</h3>
-        <p>Neurosurgical and neurological consultation platform. Patients book video or in-clinic appointments, manage dependants and access medical records. I built the scheduling and messaging modules and the application shell.</p>
+        <p>Neurosurgical and neurological consultation platform. Patients book video or in-clinic appointments, manage dependants and access medical records. I built the video consultations, real-time chat, notifications and scheduling, and the application shell.</p>
         <div class="storelinks">
           <a href="https://play.google.com/store/apps/details?id=com.globalneuro.care" target="_blank" rel="noopener">Google Play</a>
           <a href="https://apps.apple.com/in/app/global-neuro-and-spine-care/id6737462963" target="_blank" rel="noopener">App Store</a>
@@ -1045,7 +1045,7 @@ html{scroll-behavior:smooth}
         <div class="seg">
           <h4>The hard part</h4>
           <ul>
-            <li>For some users the menu simply never appeared. The app was saving a note saying &ldquo;your menu is up to date&rdquo; without checking that the menu was actually still there &mdash; so it kept trusting a copy that had gone.</li>
+            <li>The menu comes from the restaurant&rsquo;s Grubtech system. For some users it simply never appeared: the app was saving a note saying &ldquo;your menu is up to date&rdquo; without checking that the menu was actually still there &mdash; so it kept trusting a copy that had gone.</li>
             <li>I made it confirm the menu is really stored before trusting that note. The menu now loads reliably, and still opens from its saved copy when the phone is offline.</li>
           </ul>
         </div>
@@ -1072,7 +1072,7 @@ html{scroll-behavior:smooth}
           <div><dt>Status</dt><dd>Live on both stores &middot; 50K+ downloads, rated 4.9 from 1,260 reviews</dd></div>
         </dl>
         <div class="stack">
-          <span class="chip">Flutter</span><span class="chip">Firebase</span><span class="chip">Agora</span><span class="chip">Shorebird</span>
+          <span class="chip">Flutter</span><span class="chip">Agora</span><span class="chip">CallKit</span><span class="chip">Firestore</span><span class="chip">FCM</span><span class="chip">Shorebird</span>
         </div>
         <div class="storelinks">
           <a href="https://play.google.com/store/apps/details?id=com.globalneuro.care" target="_blank" rel="noopener">Google Play</a>
@@ -1080,19 +1080,22 @@ html{scroll-behavior:smooth}
         </div>
       </aside>
       <div class="case-body">
-        <p class="outcome">Shipped a doctor-and-patient platform to both stores, and cut hotfix delivery from days to hours.</p>
+        <p class="outcome">Built the video consultations and chat at the heart of a doctor-and-patient platform &mdash; now 50K+ downloads and rated 4.9 &mdash; and cut hotfix delivery from days to hours.</p>
 
         <div class="seg">
           <h4>What I built</h4>
           <ul>
-            <li><strong>Appointment scheduling and in-app messaging</strong> for a platform connecting patients, doctors and clinics.</li>
-            <li><strong>The app&rsquo;s navigation and login structure</strong>, which the rest of the team then built on.</li>
+            <li><strong>Video consultations on Agora</strong> &mdash; a call rings on the phone&rsquo;s own incoming-call screen with the caller&rsquo;s name, for 45 seconds, and leaves a missed-call notification if nobody answers. It continues in picture-in-picture, and renews its token before it expires so a consultation does not drop.</li>
+            <li><strong>Real-time chat</strong> between patients and doctors &mdash; read receipts, unread counts, voice notes, images and PDFs.</li>
+            <li><strong>Notifications that land in the right place</strong> &mdash; open, in the background or closed, a chat notification opens that conversation and every other kind routes by role, so a patient and a doctor each reach their own screen.</li>
+            <li><strong>Appointment scheduling</strong>, and the app&rsquo;s navigation and login structure, which the rest of the team then built on.</li>
           </ul>
         </div>
 
         <div class="seg">
           <h4>The hard part</h4>
           <ul>
+            <li>A call has to reach a phone whose app is closed. On iOS that means a separate VoIP push token kept in sync, and the native call screen; answering from a closed app must still open the right consultation, so the booking, patient and doctor travel with the call itself.</li>
             <li>A healthcare app cannot wait days for App Store review to fix a problem. I added over-the-air updates, so corrections reach patients within hours.</li>
             <li>I also owned the iOS release process end to end, through to submission.</li>
           </ul>
@@ -1102,6 +1105,7 @@ html{scroll-behavior:smooth}
           <h4>Result</h4>
           <ul>
             <li>Live on the App Store and Google Play: 50K+ downloads, rated 4.9 from 1,260 reviews.</li>
+            <li>Calls ring like a phone call, even with the app closed.</li>
             <li>Fixes reach users the same day.</li>
           </ul>
         </div>
